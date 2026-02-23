@@ -1,5 +1,5 @@
 from fastapi import FastAPI
-import speedtest_cli
+import speedtest
 
 app = FastAPI()
 
@@ -14,7 +14,7 @@ def run_speedtest():
   ping = st.results.ping
 
   return {
-    "download ": round(download, 2),
+    "download": round(download, 2),
     "upload": round(upload, 2),
     "ping": ping
   }
