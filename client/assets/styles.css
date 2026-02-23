@@ -1,15 +1,127 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 body {
-  font-family: Arial, sans-serif;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  padding: 20px;
+}
+
+.container {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  padding: 30px;
+  width: 100%;
+  max-width: 320px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+h1 {
+  font-size: 22px;
+  font-weight: 600;
   text-align: center;
-  margin-top: 50px;
+  margin-bottom: 25px;
+  background: linear-gradient(135deg, #00d9ff 0%, #00a8cc);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-weight: bold;
+
+
+}
+
+p{
+  padding-top: 20px;
+  text-align: center;
+  font-size: 15px;
+  color: rgb(215, 215, 215, 30%);
+}
+
+.speed-card {
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 12px;
+  padding: 15px;
+  margin-bottom: 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.speed-label {
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.6);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.speed-value {
+  font-size: 20px;
+  font-weight: 700;
+  color: #00d9ff;
+}
+
+.speed-value.upload {
+  color: #00ff88;
+}
+
+.speed-value.ping {
+  color: #ff6b6b;
 }
 
 button {
-  padding: 10px 20px;
-  font-size: 16px;
+  width: 100%;
+  padding: 14px 24px;
+  font-size: 15px;
+  font-weight: 600;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  background: linear-gradient(135deg, #00d9ff 0%, #00a8cc 100%);
+  color: #1a1a2e;
+  transition: all 0.3s ease;
+  margin-top: 10px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
 }
 
-p {
+button:hover:not(:disabled) {
+  transform: translateY(-1.5px);
+  box-shadow: 0 6px 10px rgba(0, 217, 255, 0.4);
+}
+
+button:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+button:disabled {
+  background: linear-gradient(135deg, #4a5568 0%, #2d3748 100%);
+  color: rgba(255, 255, 255, 0.5);
+  cursor: not-allowed;
+}
+
+.loading-dot {
+  animation: pulse 1.5s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+.icon {
   font-size: 18px;
-  margin: 10px 0;
+  margin-right: 8px;
 }

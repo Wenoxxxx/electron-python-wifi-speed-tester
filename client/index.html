@@ -1,15 +1,32 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Wi-Fi Speed Tester</title>
-  <link rel="stylesheet" href="assets/style.css">
+  <title>Wenoxxxx | Wi-Fi Speed Tester</title>
+  <link rel="stylesheet" href="assets/styles.css">
 </head>
 <body>
-  <h1>Wi-Fi Speed Tester</h1>
-  <button id="runTest">Run Speed Test</button>
-  <p id="download"></p>
-  <p id="upload"></p>
-  <p id="ping"></p>
+  <div class="container">
+    <h1>SPEED TESTER NI OWEN</h1>
+    
+    <div class="speed-card">
+      <span class="speed-label">Download</span>
+      <span class="speed-value" id="download">-- Mbps</span>
+    </div>
+    
+    <div class="speed-card">
+      <span class="speed-label">Upload</span>
+      <span class="speed-value upload" id="upload">-- Mbps</span>
+    </div>
+    
+    <div class="speed-card">
+      <span class="speed-label">Ping</span>
+      <span class="speed-value ping" id="ping">-- ms</span>
+    </div>
+    
+    <button id="runTest">▶ Run Speed Test</button>
+
+    <p>Made with ♥️ by Wenoxxxx</p>
+  </div>
   <script src="index.js"></script>
 </body>
 </html>
