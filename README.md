@@ -84,7 +84,7 @@ Contributions are welcome! Here's how you can help:
 - Add support for selecting specific test servers
 - Add multi-language support
 - Improve the UI/UX design
-- Add dark/light theme support
+- Add light theme support
 
 ## License
 
