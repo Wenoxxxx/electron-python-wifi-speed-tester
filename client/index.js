@@ -16,12 +16,19 @@ document.addEventListener('DOMContentLoaded', () => {
 
       const response = await fetch('http://localhost:8000/speedtest');
       
-      if (!response.ok) {
-        throw new Error(`HTTP error! status: ${response.status}`);
-      }
-      
       const result = await response.json();
 
+      // Check if there's an error in the response
+      if (result.error) {
+        downloadLabel.textContent = 'Error';
+        uploadLabel.textContent = 'Error';
+        pingLabel.textContent = 'Error';
+        console.error('Speedtest error:', result.detail || result.error);
+        runTestButton.textContent = '▶ Run Speed Test';
+        runTestButton.disabled = false;
+        return;
+      }
+      
       downloadLabel.textContent = `${result.download} Mbps`;
       uploadLabel.textContent = `${result.upload} Mbps`;
       pingLabel.textContent = `${result.ping} ms`;

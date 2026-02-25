@@ -35,7 +35,6 @@ h1 {
   background: linear-gradient(135deg, #00d9ff 0%, #00a8cc);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  background-clip: text;
   font-weight: bold;
 
 
@@ -45,7 +44,7 @@ p{
   padding-top: 20px;
   text-align: center;
   font-size: 15px;
-  color: rgb(215, 215, 215, 30%);
+  color: rgba(215, 215, 215, 0.3);
 }
 
 .speed-card {
