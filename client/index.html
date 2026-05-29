@@ -1,31 +1,57 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <meta charset="UTF-8">
   <title>Wenoxxxx | Wi-Fi Speed Tester</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Space+Grotesk:wght@400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/styles.css">
 </head>
 <body>
   <div class="container">
-    <h1>SPEED TESTER NI OWEN</h1>
-    
-    <div class="speed-card">
-      <span class="speed-label">Download</span>
-      <span class="speed-value" id="download">-- Mbps</span>
+    <div class="header">
+      <div class="system-meta">
+        <span class="status-indicator"></span>
+        <span class="status-text">SYS_READY</span>
+      </div>
+      <div class="title-wrap">
+        <h1>WENOXXXX</h1>
+        <span class="subtitle">NET_INSTRUMENT // V1.0</span>
+      </div>
     </div>
     
-    <div class="speed-card">
-      <span class="speed-label">Upload</span>
-      <span class="speed-value upload" id="upload">-- Mbps</span>
+    <div class="grid-container">
+      <div class="speed-card download-card">
+        <div class="card-header">
+          <span class="speed-label">01 // DOWNLOAD</span>
+          <span class="tech-icon">↓</span>
+        </div>
+        <span class="speed-value" id="download">-- Mbps</span>
+      </div>
+      
+      <div class="speed-card upload-card">
+        <div class="card-header">
+          <span class="speed-label">02 // UPLOAD</span>
+          <span class="tech-icon">↑</span>
+        </div>
+        <span class="speed-value upload" id="upload">-- Mbps</span>
+      </div>
+      
+      <div class="speed-card ping-card">
+        <div class="card-header">
+          <span class="speed-label">03 // PING_LATENCY</span>
+          <span class="tech-icon">↔</span>
+        </div>
+        <span class="speed-value ping" id="ping">-- ms</span>
+      </div>
     </div>
     
-    <div class="speed-card">
-      <span class="speed-label">Ping</span>
-      <span class="speed-value ping" id="ping">-- ms</span>
-    </div>
-    
-    <button id="runTest">▶ Run Speed Test</button>
+    <button id="runTest">RUN_TEST_SEQUENCE</button>
 
-    <p>Made with ♥️ by Wenoxxxx</p>
+    <div class="footer">
+      <span class="bracket">[</span> MADE BY OWEN WENOXXXX <span class="bracket">]</span>
+    </div>
   </div>
   <script src="index.js"></script>
 </body>

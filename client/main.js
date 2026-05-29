@@ -17,7 +17,7 @@ function createWindow() {
     webPreferences: {
       nodeIntegration: true,
     },
-    backgroundColor: '#1a1a2e',
+    backgroundColor: '#000000',
   });
 
   win.loadFile('index.html');

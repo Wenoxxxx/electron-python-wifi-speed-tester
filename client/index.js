@@ -4,27 +4,39 @@ document.addEventListener('DOMContentLoaded', () => {
   const downloadLabel = document.getElementById('download');
   const uploadLabel = document.getElementById('upload');
   const pingLabel = document.getElementById('ping');
+  const statusText = document.querySelector('.status-text');
+  const statusIndicator = document.querySelector('.status-indicator');
 
   async function runSpeedTest() {
     try {
       // Show loading state
       runTestButton.disabled = true;
-      runTestButton.textContent = 'Testing...';
-      downloadLabel.textContent = 'Testing...';
-      uploadLabel.textContent = 'Testing...';
-      pingLabel.textContent = 'Testing...';
+      runTestButton.textContent = 'RUNNING_TEST...';
+      downloadLabel.textContent = 'TESTING...';
+      uploadLabel.textContent = 'TESTING...';
+      pingLabel.textContent = 'TESTING...';
+
+      if (statusText) statusText.textContent = 'TESTING_NETWORK';
+      if (statusIndicator) {
+        statusIndicator.className = 'status-indicator running';
+      }
 
       const response = await fetch('http://localhost:8000/speedtest');
-      
       const result = await response.json();
 
       // Check if there's an error in the response
       if (result.error) {
-        downloadLabel.textContent = 'Error';
-        uploadLabel.textContent = 'Error';
-        pingLabel.textContent = 'Error';
+        downloadLabel.textContent = 'ERROR';
+        uploadLabel.textContent = 'ERROR';
+        pingLabel.textContent = 'ERROR';
         console.error('Speedtest error:', result.detail || result.error);
-        runTestButton.textContent = '▶ Run Speed Test';
+        
+        if (statusText) statusText.textContent = 'SYS_ERROR';
+        if (statusIndicator) {
+          statusIndicator.className = 'status-indicator error';
+        }
+        
+        runTestButton.textContent = 'RUN_TEST_SEQUENCE';
         runTestButton.disabled = false;
         return;
       }
@@ -33,14 +45,25 @@ document.addEventListener('DOMContentLoaded', () => {
       uploadLabel.textContent = `${result.upload} Mbps`;
       pingLabel.textContent = `${result.ping} ms`;
       
-      runTestButton.textContent = '▶ Run Speed Test';
+      if (statusText) statusText.textContent = 'SYS_READY';
+      if (statusIndicator) {
+        statusIndicator.className = 'status-indicator success';
+      }
+
+      runTestButton.textContent = 'RUN_TEST_SEQUENCE';
       runTestButton.disabled = false;
     } catch (err) {
       console.error('Error fetching speed test:', err);
-      downloadLabel.textContent = 'Error';
-      uploadLabel.textContent = 'Error';
-      pingLabel.textContent = 'Error';
-      runTestButton.textContent = '▶ Run Speed Test';
+      downloadLabel.textContent = 'ERROR';
+      uploadLabel.textContent = 'ERROR';
+      pingLabel.textContent = 'ERROR';
+      
+      if (statusText) statusText.textContent = 'SYS_ERROR';
+      if (statusIndicator) {
+        statusIndicator.className = 'status-indicator error';
+      }
+
+      runTestButton.textContent = 'RUN_TEST_SEQUENCE';
       runTestButton.disabled = false;
     }
   }
