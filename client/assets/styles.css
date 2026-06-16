@@ -1,6 +1,6 @@
 :root {
-  --color-bg: #000000;
-  --color-panel: #000000;
+  --color-bg: #222222;
+  --color-panel: #222222;
   --color-blue: #0052ff;
   --color-white: #ffffff;
   --color-white-muted: rgba(255, 255, 255, 0.4);
@@ -14,7 +14,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  border-radius: 0 !important; /* Force remove all border-radius */
+  border-radius: 0 !important;
 }
 
 body {
@@ -30,7 +30,7 @@ body {
 
 .container {
   width: 360px;
-  height: 470px;
+  height: 500px;
   background-color: var(--color-panel);
   border: 1px solid var(--color-white);
   padding: 24px;
@@ -40,7 +40,6 @@ body {
   position: relative;
 }
 
-/* Dynamic Sci-Fi Tech Corner Accents */
 .container::before {
   content: '';
   position: absolute;
@@ -138,6 +137,7 @@ body {
   display: flex;
   flex-direction: column;
   gap: 6px;
+  position: relative;             /* needed for badge positioning */
   transition: border-color 0.2s ease, background-color 0.2s ease;
 }
 
@@ -173,23 +173,9 @@ body {
   letter-spacing: -0.5px;
 }
 
-/* Colors for speed labels mapping to action colors */
-.download-card .speed-value {
-  color: var(--color-green);
-}
-
-.upload-card .speed-value {
-  color: var(--color-blue); /* Theme Blue */
-}
-
-.ping-card .speed-value {
-  color: var(--color-red);
-}
-
-/* Speed values text during loading */
-.speed-value:contains("Testing") {
-  color: var(--color-white-muted);
-}
+.download-card .speed-value { color: var(--color-green); }
+.upload-card .speed-value   { color: var(--color-blue);  }
+.ping-card .speed-value     { color: var(--color-red);   }
 
 button {
   font-family: var(--font-mono);
@@ -230,9 +216,46 @@ button:disabled {
   color: var(--color-white-muted);
   text-align: center;
   letter-spacing: 1px;
-  padding-top: 8px;
+  padding-top: 10px;
 }
 
-.bracket {
+.bracket { color: var(--color-blue); }
+
+/* Blinking effect for live values */
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.2; }
+}
+
+.measuring { animation: blink 0.8s ease-in-out infinite; }
+
+/* Highlighted phase label */
+.phase-active {
   color: var(--color-blue);
+  font-weight: 700;
+  letter-spacing: 0.1em;
+}
+
+/* ── Card status badge (bottom-right corner) ── */
+.card-badge {
+  position: absolute;
+  bottom: 8px;
+  right: 10px;
+  font-family: var(--font-mono);
+  font-size: 8px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  opacity: 0;
+  transition: opacity 0.3s ease, color 0.3s ease;
+  pointer-events: none;
+}
+
+.card-badge.visible     { opacity: 1; }
+.card-badge.badge-testing { color: var(--color-white-muted); }
+.card-badge.badge-done    { color: var(--color-green); }
+.card-badge.badge-failed  { color: var(--color-red); }
+
+/* Blink the [TESTING] badge so it feels alive */
+.card-badge.badge-testing {
+  animation: blink 1s ease-in-out infinite;
 }

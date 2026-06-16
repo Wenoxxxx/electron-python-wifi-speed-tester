@@ -1,7 +1,6 @@
 const { app, BrowserWindow } = require('electron');
 const path = require('path');
 
-// Enable live reload for development
 require('electron-reload')(__dirname, {
   ignored: /node_modules|\.git/,
   electron: path.join(__dirname, 'node_modules', 'electron', 'dist', 'electron.exe')
@@ -10,14 +9,17 @@ require('electron-reload')(__dirname, {
 function createWindow() {
   const win = new BrowserWindow({
     width: 400,
-    height: 510,
+    height: 600,
     resizable: false,
     maximizable: false,
     fullscreenable: false,
     webPreferences: {
       nodeIntegration: true,
+      contextIsolation: false,   // ← add this
+      webSecurity: false,        // ← add this
     },
-    backgroundColor: '#000000',
+    backgroundColor: '#E8EDF2',
+    // icon: __dirname +
   });
 
   win.loadFile('index.html');
