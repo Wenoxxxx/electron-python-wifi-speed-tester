@@ -52,6 +52,8 @@ npm install
 
 ## Usage
 
+> **Shortcut:** Instead of running the steps below manually, you can just double-click `start.bat` to launch both the backend and the app at once.
+
 ### Step 1 — Start the Python backend
 
 ```bash
