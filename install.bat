@@ -27,8 +27,9 @@ if %errorlevel% equ 0 (
     node -v
 ) else (
     echo Node.js is not installed.
-       winget install OpenJS.NodeJS.LTS
+    winget install OpenJS.NodeJS.LTS
 )
-
+cd client
+npm install
 pause
 endlocal
