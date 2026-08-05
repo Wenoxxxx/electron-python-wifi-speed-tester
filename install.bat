@@ -1,6 +1,6 @@
 @echo off
 
-
-python -m pip install -r /server/requirements.txt
+cd server
+python -m pip install -r requirements.txt
 
 pause
