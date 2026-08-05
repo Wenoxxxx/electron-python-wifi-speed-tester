@@ -29,6 +29,7 @@ if %errorlevel% equ 0 (
     echo Node.js is not installed.
     winget install OpenJS.NodeJS.LTS
 )
+cd..
 cd client
 npm install
 pause
