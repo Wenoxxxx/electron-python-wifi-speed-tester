@@ -16,7 +16,11 @@ if %errorlevel% equ 0 (
        setx PATH "%PATH%;%localappdata%\Programs\Python\Python314;%localappdata%\Programs\Python\Python314\Scripts"
 )
 
-python -m pip install -r requirements.txt
+if not exist venv\Scripts\python.exe (
+    echo [INFO] Creating virtual environment...
+    python -m venv venv
+)
+venv\Scripts\python.exe -m pip install -r requirements.txt
 
 :: Check if the node executable is in the system PATH
 where node >nul 2>nul
