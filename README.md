@@ -1,6 +1,6 @@
 # electron-python-wifi-speed-tester
 
-A desktop internet connection speed tester built with Electron and Python — featuring real-time SSE streaming, live animated speed readings, and per-card phase badges.
+A desktop internet connection speed tester ran locally. Built with Electron and Python — featuring real-time SSE streaming, live animated speed readings, and per-card phase badges.
 
 ---
 
